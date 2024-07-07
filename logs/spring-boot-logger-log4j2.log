@@ -1,0 +1,33 @@
+2024-07-07 23:44:13,423 INFO o.s.b.StartupInfoLogger [Test worker] Starting TradingSvcApplicationTests using Java 17.0.6 with PID 38294 (started by admin in /Users/admin/projects/trading-svc)
+2024-07-07 23:44:13,430 INFO o.s.b.SpringApplication [Test worker] No active profile set, falling back to 1 default profile: "default"
+2024-07-07 23:44:13,861 INFO o.s.d.r.c.RepositoryConfigurationDelegate [Test worker] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-07 23:44:13,906 INFO o.s.d.r.c.RepositoryConfigurationDelegate [Test worker] Finished Spring Data repository scanning in 36 ms. Found 5 JPA repository interfaces.
+2024-07-07 23:44:14,038 INFO o.s.c.c.s.GenericScope [Test worker] BeanFactory id=ced8652a-e944-3a89-a8a4-aad4496f96bf
+2024-07-07 23:44:14,583 INFO o.f.c.i.l.s.Slf4jLog [Test worker] Database: jdbc:h2:mem:testdb (H2 2.2)
+2024-07-07 23:44:14,603 INFO o.f.c.i.l.s.Slf4jLog [Test worker] Schema history table "PUBLIC"."flyway_schema_history" does not exist yet
+2024-07-07 23:44:14,604 INFO o.f.c.i.l.s.Slf4jLog [Test worker] Successfully validated 2 migrations (execution time 00:00.009s)
+2024-07-07 23:44:14,610 INFO o.f.c.i.l.s.Slf4jLog [Test worker] Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+2024-07-07 23:44:14,634 INFO o.f.c.i.l.s.Slf4jLog [Test worker] Current version of schema "PUBLIC": << Empty Schema >>
+2024-07-07 23:44:14,641 INFO o.f.c.i.l.s.Slf4jLog [Test worker] Migrating schema "PUBLIC" to version "1.0.0 - create table"
+2024-07-07 23:44:14,660 INFO o.f.c.i.l.s.Slf4jLog [Test worker] Migrating schema "PUBLIC" to version "1.0.1 - init data"
+2024-07-07 23:44:14,666 INFO o.f.c.i.l.s.Slf4jLog [Test worker] Successfully applied 2 migrations to schema "PUBLIC", now at version v1.0.1 (execution time 00:00.012s)
+2024-07-07 23:44:14,718 INFO c.z.h.HikariDataSource [Test worker] HikariPool-1 - Starting...
+2024-07-07 23:44:14,726 INFO c.z.h.p.HikariPool [Test worker] HikariPool-1 - Added connection conn3: url=jdbc:h2:mem:mydb user=SA
+2024-07-07 23:44:14,727 INFO c.z.h.HikariDataSource [Test worker] HikariPool-1 - Start completed.
+2024-07-07 23:44:14,757 INFO o.h.j.i.u.LogHelper [Test worker] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-07 23:44:14,795 INFO o.h.Version [Test worker] HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-07-07 23:44:14,817 INFO o.h.c.i.RegionFactoryInitiator [Test worker] HHH000026: Second-level cache disabled
+2024-07-07 23:44:15,050 INFO o.s.o.j.p.SpringPersistenceUnitInfo [Test worker] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-07 23:44:15,089 WARN o.h.e.j.d.i.DialectFactoryImpl [Test worker] HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-07 23:44:15,582 INFO o.h.m.i.EntityInstantiatorPojoStandard [Test worker] HHH000182: No default (no-argument) constructor for class: com.aquariux.platform.trading.infra.entity.WalletEntity (class must be instantiated by Interceptor)
+2024-07-07 23:44:15,633 INFO o.h.m.i.EntityInstantiatorPojoStandard [Test worker] HHH000182: No default (no-argument) constructor for class: com.aquariux.platform.trading.infra.entity.CryptoEntity (class must be instantiated by Interceptor)
+2024-07-07 23:44:15,817 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [Test worker] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-07 23:44:15,843 INFO o.s.o.j.AbstractEntityManagerFactoryBean [Test worker] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-07 23:44:15,900 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [Test worker] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-07 23:44:16,491 INFO o.s.b.a.h.H2ConsoleAutoConfiguration [Test worker] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:mydb'
+2024-07-07 23:44:16,543 INFO o.s.b.StartupInfoLogger [Test worker] Started TradingSvcApplicationTests in 3.433 seconds (process running for 4.652)
+2024-07-07 23:44:16,546 INFO c.a.p.t.s.i.AggregatedPriceServiceImpl [scheduling-1] Begin get latest price
+2024-07-07 23:44:17,366 INFO c.a.p.t.s.i.AggregatedPriceServiceImpl [scheduling-1] End get latest price
+2024-07-07 23:44:17,368 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-07 23:44:17,371 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-07-07 23:44:17,373 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
