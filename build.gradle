@@ -44,7 +44,7 @@ configurations {
 jacocoTestReport {
 	reports {
 		xml.required = true
-		cvs.required = true
+		csv.required = true
 	}
 }
 build.dependsOn jacocoTestReport
