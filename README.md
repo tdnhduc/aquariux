@@ -1,2 +1,2 @@
 # aquariux
-Aquariux Exam
+Aquariux Exam ![Coverage](.github/badges/jacoco.svg)
