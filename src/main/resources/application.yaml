@@ -25,3 +25,16 @@ spring:
         username: "${DB_USER_NAME:sa}"
         password: "${DB_PASSWORD:password}"
         schemas: PUBLIC
+
+feign:
+    client:
+        config:
+            default:
+                loggerLevel: FULL
+                connectTimeout: 15000
+                readTimeout: 30000
+                maxAttempts: 3
+                retryable:
+                    maxAttempts: 3
+                    period: 500
+                    maxPeriod: 10000

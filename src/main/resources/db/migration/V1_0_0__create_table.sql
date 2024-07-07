@@ -7,10 +7,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 );
 
 CREATE TABLE IF NOT EXISTS `crypto` (
-    `symbol` VARCHAR(8) PRIMARY KEY,
-    `name` VARCHAR(50) NOT NULL,
-    `created_date` DATETIME,
-    `modified_date` DATETIME
+    `id` INT PRIMARY KEY,
+    `symbol` VARCHAR(8) UNIQUE
 );
 
 CREATE TABLE IF NOT EXISTS `wallet` (
@@ -25,15 +23,18 @@ CREATE TABLE IF NOT EXISTS `wallet` (
 );
 
 CREATE TABLE IF NOT EXISTS `aggregated_price` (
-    `id` INT PRIMARY KEY,
     `symbol` VARCHAR(50) NOT NULL,
     `partner_name` VARCHAR(10) NOT NULL,
     `bid_price` BIGINT,
+    `bid_qty` BIGINT,
     `ask_price` BIGINT,
+    `ask_qty` BIGINT,
     `created_date` DATETIME,
     `modified_date` DATETIME,
+    CONSTRAINT PK_Aggregated_Price PRIMARY KEY (symbol, partner_name),
     FOREIGN KEY (`symbol`) REFERENCES `crypto` (`symbol`)
 );
+
 CREATE INDEX `symbol_and_partner_name` ON aggregated_price(`symbol`, `partner_name`);
 
 CREATE TABLE IF NOT EXISTS `trade` (

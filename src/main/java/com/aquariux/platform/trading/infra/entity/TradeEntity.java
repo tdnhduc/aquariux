@@ -1,6 +1,6 @@
 package com.aquariux.platform.trading.infra.entity;
 
-import com.aquariux.platform.trading.common.TradeType;
+import com.aquariux.platform.trading.domain.TradeType;
 import jakarta.persistence.*;
 import lombok.Getter;
 
@@ -10,18 +10,18 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "trade")
 @Getter
-public class Trade extends BaseEntity {
+public class TradeEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private UserEntity userEntity;
 
     @ManyToOne
-    @JoinColumn(name = "crypto_id")
-    private Crypto crypto;
+    @JoinColumn(name = "symbol")
+    private CryptoEntity crypto;
 
     @Enumerated(EnumType.STRING)
     private TradeType tradeType;
