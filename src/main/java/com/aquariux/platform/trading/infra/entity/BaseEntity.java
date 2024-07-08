@@ -25,12 +25,12 @@ public abstract class BaseEntity {
     @LastModifiedDate
     @Builder.Default
     @JsonIgnore
-    private LocalDateTime modifiedDate = LocalDateTime.now();
+    protected LocalDateTime modifiedDate = LocalDateTime.now();
 
     @CreatedDate
     @Builder.Default
     @JsonIgnore
-    private LocalDateTime createdDate = LocalDateTime.now();
+    protected LocalDateTime createdDate = LocalDateTime.now();
 
     @PreUpdate
     public void onUpdate() {

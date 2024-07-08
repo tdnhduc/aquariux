@@ -6,16 +6,21 @@ import com.aquariux.platform.trading.domain.TradeType;
 import com.aquariux.platform.trading.infra.connector.BinanceConnector;
 import com.aquariux.platform.trading.infra.connector.HuobiConnector;
 import com.aquariux.platform.trading.infra.entity.AggregatedPriceEntity;
+import com.aquariux.platform.trading.infra.entity.WalletEntity;
 import com.aquariux.platform.trading.infra.exception.BusinessException;
 import com.aquariux.platform.trading.infra.repository.AggregatedPriceRepository;
+import com.aquariux.platform.trading.infra.repository.UserRepository;
+import com.aquariux.platform.trading.infra.repository.WalletRepository;
 import com.aquariux.platform.trading.service.AggregatedPriceService;
 import com.aquariux.platform.trading.service.domain.AggregatedPrice;
+import com.aquariux.platform.trading.service.domain.OrderPlace;
 import com.aquariux.platform.trading.service.mapper.AggregatedPriceMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -41,7 +46,7 @@ public class AggregatedPriceServiceImpl implements AggregatedPriceService {
                 .map(binanceBookTicker ->
                     AggregatedPriceEntity.builder()
                             .partnerName(Partner.BINANCE)
-                            .crypto(SupportedSymbol.valueOf(binanceBookTicker.getSymbol().toUpperCase()))
+                            .symbol(SupportedSymbol.valueOf(binanceBookTicker.getSymbol().toUpperCase()))
                             .bidPrice(binanceBookTicker.getBidPrice())
                             .bidQty(binanceBookTicker.getBidQty())
                             .askPrice(binanceBookTicker.getAskPrice())
@@ -55,7 +60,7 @@ public class AggregatedPriceServiceImpl implements AggregatedPriceService {
                 .map(huobiBookTicker ->
                         AggregatedPriceEntity.builder()
                                 .partnerName(Partner.HUOBI)
-                                .crypto(SupportedSymbol.valueOf(huobiBookTicker.getSymbol().toUpperCase()))
+                                .symbol(SupportedSymbol.valueOf(huobiBookTicker.getSymbol().toUpperCase()))
                                 .bidPrice(huobiBookTicker.getBid())
                                 .bidQty(huobiBookTicker.getBidSize())
                                 .askPrice(huobiBookTicker.getAsk())
@@ -72,11 +77,11 @@ public class AggregatedPriceServiceImpl implements AggregatedPriceService {
     @Override
     public AggregatedPrice getBestPrice(SupportedSymbol symbol, TradeType tradeType) throws BusinessException {
         var binancePrice = AggregatedPriceEntity.AggregatedPriceId.builder()
-                .crypto(symbol)
+                .symbol(symbol)
                 .partnerName(Partner.BINANCE)
                 .build();
         var huobiPrice = AggregatedPriceEntity.AggregatedPriceId.builder()
-                .crypto(symbol)
+                .symbol(symbol)
                 .partnerName(Partner.HUOBI)
                 .build();
         var entities = this.aggregatedPriceRepository.findAllById(Stream.of(binancePrice, huobiPrice).toList());
@@ -84,7 +89,7 @@ public class AggregatedPriceServiceImpl implements AggregatedPriceService {
             throw new BusinessException("Symbol not found");
         }
         var maxPrice = Collections.max(entities, Comparator.comparing(entity -> {
-            if (TradeType.BUY.equals(tradeType)) {
+            if (TradeType.LONG.equals(tradeType)) {
                 return entity.getBidPrice();
             } else {
                 return entity.getAskPrice();

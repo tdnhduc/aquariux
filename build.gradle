@@ -51,3 +51,8 @@ jacocoTestReport {
 }
 build.dependsOn jacocoTestReport
 
+jar {
+	manifest {
+		attributes 'trading-svc': 'com.aquariux.platform.trading.TradingSvcApplication'
+	}
+}
