@@ -14,6 +14,8 @@ import java.math.BigDecimal;
 @IdClass(AggregatedPriceEntity.AggregatedPriceId.class)
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@ToString
 public class AggregatedPriceEntity extends BaseEntity {
 
     @Id
@@ -36,6 +38,7 @@ public class AggregatedPriceEntity extends BaseEntity {
     @Getter
     @AllArgsConstructor
     @NoArgsConstructor
+    @Builder
     public static class AggregatedPriceId implements Serializable {
         private SupportedSymbol crypto;
         private Partner partnerName;
