@@ -7,7 +7,7 @@ Aquariux Exam ![Coverage](.github/badges/jacoco.svg)
 
 # Feature description
 ## Postman Collection: 
-https://api.postman.com/collections/36810555-831df8ad-c76d-44b2-8070-8f39a512cdba?access_key=PMAT-01J29RNQC9HY8P3MQXXNV7YVPA
+https://api.getpostman.com/collections/36810555-831df8ad-c76d-44b2-8070-8f39a512cdba
 ## Get Price Ticker
 1. Every 10s, we will get latest price from Binance, Huobi
 ![Price Ticker](.github/features/get_price_ticker.png)
