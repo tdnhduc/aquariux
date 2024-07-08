@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS `user` (
     `id` VARCHAR(50) PRIMARY KEY,
     `username` VARCHAR(50) NOT NULL,
     `email` VARCHAR(50) NOT NULL,
+    `status` VARCHAR(10),
     `created_date` DATETIME,
     `modified_date` DATETIME
 );
@@ -14,13 +15,15 @@ CREATE TABLE IF NOT EXISTS `crypto` (
 CREATE TABLE IF NOT EXISTS `wallet` (
     `id` VARCHAR(50) PRIMARY KEY,
     `user_id` VARCHAR(50) NOT NULL,
-    `symbol` VARCHAR(50) NOT NULL,
+    `currency` VARCHAR(50) NOT NULL,
     `balance` BIGINT,
     `created_date` DATETIME,
     `modified_date` DATETIME,
-    FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-    FOREIGN KEY (`symbol`) REFERENCES `crypto` (`symbol`)
+    FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 );
+
+ALTER TABLE `wallet` ADD CONSTRAINT gsc UNIQUE(`user_id`, `currency`);
+
 
 CREATE TABLE IF NOT EXISTS `aggregated_price` (
     `symbol` VARCHAR(50) NOT NULL,

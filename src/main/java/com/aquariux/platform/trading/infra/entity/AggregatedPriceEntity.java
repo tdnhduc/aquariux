@@ -20,7 +20,7 @@ public class AggregatedPriceEntity extends BaseEntity {
 
     @Id
     @Enumerated(EnumType.STRING)
-    private SupportedSymbol crypto;
+    private SupportedSymbol symbol;
 
     @Id
     @Enumerated(EnumType.STRING)
@@ -40,7 +40,7 @@ public class AggregatedPriceEntity extends BaseEntity {
     @NoArgsConstructor
     @Builder
     public static class AggregatedPriceId implements Serializable {
-        private SupportedSymbol crypto;
+        private SupportedSymbol symbol;
         private Partner partnerName;
     }
 }

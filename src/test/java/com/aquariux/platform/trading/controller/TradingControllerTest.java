@@ -1,6 +1,8 @@
 package com.aquariux.platform.trading.controller;
 
 import com.aquariux.platform.trading.service.AggregatedPriceService;
+import com.aquariux.platform.trading.service.IdempotencyService;
+import com.aquariux.platform.trading.service.TradingService;
 import com.aquariux.platform.trading.service.domain.AggregatedPrice;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +19,19 @@ public class TradingControllerTest {
     private MockMvc mockMvc;
     @MockBean
     private AggregatedPriceService aggregatedPriceService;
+    @MockBean
+    private TradingService tradingService;
+    @MockBean
+    private IdempotencyService idempotencyService;
 
     @Test
     void shouldReturnBestPrice() throws Exception {
         AggregatedPrice price = new AggregatedPrice();
         mockMvc.perform(get("/trading/prices/best")
-                .param("symbol", "BTCUSDT")
-                .param("tradeType", "BUY"))
+                        .param("symbol", "BTCUSDT")
+                        .param("tradeType", "LONG")
+                        .param("price", "1")
+                        .param("quantity", "1"))
                 .andExpect(status().isOk());
     }
 
