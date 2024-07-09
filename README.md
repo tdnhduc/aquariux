@@ -1,5 +1,8 @@
 # Aquariux
 Aquariux Exam ![Coverage](.github/badges/jacoco.svg)
+# Overview
+1. Get latest price from Binance, Huobi: using OpenFeignClient
+2. 
 # How to run
 1. `./gradlew clean build` for build project
 2. `docker build -t aquariux .` for build docker image
