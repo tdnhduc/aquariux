@@ -1,7 +1,6 @@
 package com.aquariux.platform.trading.service.impl;
 
 import com.aquariux.platform.trading.domain.Currency;
-import com.aquariux.platform.trading.infra.entity.WalletEntity;
 import com.aquariux.platform.trading.infra.exception.BusinessException;
 import com.aquariux.platform.trading.infra.repository.WalletRepository;
 import com.aquariux.platform.trading.service.WalletService;

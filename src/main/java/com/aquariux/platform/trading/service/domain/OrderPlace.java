@@ -1,7 +1,5 @@
 package com.aquariux.platform.trading.service.domain;
 
-import com.aquariux.platform.trading.domain.SupportedSymbol;
-import com.aquariux.platform.trading.domain.TradeType;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
