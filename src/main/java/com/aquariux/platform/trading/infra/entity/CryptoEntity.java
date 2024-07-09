@@ -1,6 +1,5 @@
 package com.aquariux.platform.trading.infra.entity;
 
-import com.aquariux.platform.trading.domain.Currency;
 import com.aquariux.platform.trading.domain.SupportedSymbol;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

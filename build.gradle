@@ -48,6 +48,18 @@ jacocoTestReport {
 		xml.required = true
 		csv.required = true
 	}
+	afterEvaluate {
+		classDirectories.setFrom(files(classDirectories.files.collect {
+			fileTree(dir: it, exclude:
+					['com/aquariux/platform/trading/constant/',
+					 'com/aquariux/platform/trading/**/*Test.class',
+					 'com/aquariux/platform/trading/**/*Tests.class',
+					 'com/aquariux/platform/trading/domain/',
+					 'com/aquariux/platform/trading/infra/connector/',
+					 'com/aquariux/platform/trading/infra/entity/',
+				])
+		}))
+	}
 }
 build.dependsOn jacocoTestReport
 

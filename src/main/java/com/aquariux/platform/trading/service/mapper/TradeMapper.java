@@ -2,7 +2,6 @@ package com.aquariux.platform.trading.service.mapper;
 
 import com.aquariux.platform.trading.controller.dto.OrderHistoryResponse;
 import com.aquariux.platform.trading.infra.entity.TradeEntity;
-import com.aquariux.platform.trading.service.domain.OrderPlace;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;

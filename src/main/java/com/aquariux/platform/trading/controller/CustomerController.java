@@ -5,7 +5,6 @@ import com.aquariux.platform.trading.controller.dto.WalletResponse;
 import com.aquariux.platform.trading.controller.mapper.WalletResponseMapper;
 import com.aquariux.platform.trading.domain.Currency;
 import com.aquariux.platform.trading.service.WalletService;
-import com.aquariux.platform.trading.service.domain.Wallet;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
