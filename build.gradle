@@ -55,8 +55,7 @@ jacocoTestReport {
 					 'com/aquariux/platform/trading/**/*Test.class',
 					 'com/aquariux/platform/trading/**/*Tests.class',
 					 'com/aquariux/platform/trading/domain/',
-					 'com/aquariux/platform/trading/infra/connector/',
-					 'com/aquariux/platform/trading/infra/entity/',
+					 'com/aquariux/platform/trading/infra/'
 				])
 		}))
 	}
